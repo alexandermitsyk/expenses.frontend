@@ -1,13 +1,206 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.navbar {
+    background-color: #1976d2;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.brand {
+    font-family: Roboto;
+    font-weight: 200;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.stats-preview {
+    background-color: #2195f3;
+    width: 100%;
+    height: 120px;
+}
+
+.stats-preview .container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 30% 70%;
+    padding: 0.5rem 1rem;
+}
+
+.stats-preview .left-col h6 {
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.stats-preview .left-col p {
+    font-family: Roboto;
+    font-weight: 200;
+    font-size: 60px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.container.header-grid-container {
+    display: grid !important;
+    grid-template-columns: 70px calc(100% - 170px) 100px;
+    position: relative;
+}
+
+.dropdown-custom-render {
+    position: absolute;
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    min-width: 120px;
+    top: 51px;
+    border: 1px solid #eee;
+    padding: 0.5rem 0.8rem;
+    color: #999999;
+    left: 18px;
+    z-index: 1;
+    border-radius: 3px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+}
+
+.dropdown-custom-render::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #fff;
+    top: -5px;
+    transform: rotate(45deg);
+    border-left-color: #eee;
+    z-index: -1;
+    border-right-color: #fff;
+    border-top-color: #eee;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-color: #fff;
+    left: 15px;
+}
+
+.nav {
+    flex-direction: column;
+}
+
+.nav a.btn {
+    padding: 0;
+    margin: 0;
+    line-height: initial;
+    list-style: none;
+    display: contents;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: Roboto !important;
+}
+
+.nav a {
+    color: #000;
+    font-size: 18px;
+    font-family: Roboto !important;
+    border-radius: 0;
+    margin: 0;
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    text-decoration: none;
+}
+
+ion-icon {
+    font-size: 21px;
+    margin-right: 5px;
+  }
+
+
+.nav a.btn:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.nav a {
+    display: flex !important;
+    align-items: center;
+}
+
+.nav a img {
+    margin-right: 6px;
+}
+
+.add-button {
+    background-color: #efb115;
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);
+}
+
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 0 !important;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 0 !important;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #ededed;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 0 !important;
+}
+
+.table-bordered {
+    border: 0 !important;
+}
+
+.filter-container {
+    width: 100%;
+    height: 60px;
+    background-color: #dddddd;
+    margin-top: 40px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f7f7f7 !important;
+}
+
+.modal-body {
+    padding: 0 !important;
+}
+
+.modal-footer {
+    margin-top: 10px;
+}
+
+.modal-body form div {
+    padding: 1rem;
+}
+
+.settings {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 30px 30px;
+}
+
+.edit {
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.nav a i {
+    margin-right: 10px;
+    font-size: 12px !important;
+}
+
+button.add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
