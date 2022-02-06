@@ -3,7 +3,7 @@ import { Nav, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../app/authenticationSlice';
-import { Squash as Hamburger } from 'hamburger-react'
+import { Squash as Hamburger } from 'hamburger-react';
 
 const Dropdown = () => {
     const dispatch = useDispatch();

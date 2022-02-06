@@ -6,6 +6,7 @@ import SignUpPage from './components/SignUpPage';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userAuthenticated } from './app/authenticationSlice';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ const App = () => {
 
   return <BrowserRouter>
     <Navbar show={show} setShow={setShow} handleShow={handleShow} />
+    <ToastContainer />
     <Switch>
       <Route exact path="/" render={() => (isLoggedIn ? <HomePage show={show} setShow={setShow} /> : <SignInPage />)} />
       <Route path="/signup" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignUpPage />)} />

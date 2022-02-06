@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetExpenses } from '../services/expenses';
-import ExpenseForm from './ExpenseForm';
 import ExpenseModal from './ExpenseModal';
 import ExpenseFilter from './ExpenseFilter';
 import { DeleteExpense } from '../services/expenses';
+import moment from 'moment';
 
 const ExpenseList = ({ show, setShow }) => {
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const ExpenseList = ({ show, setShow }) => {
                     <thead>
                         <tr>
                             <th>DESCRIPTION</th>
-                            <th>DATET</th>
+                            <th>DATE</th>
                             <th>COMMENT</th>
                             <th>AMOUNT</th>
                             <th></th>
@@ -61,8 +61,8 @@ const ListRow = ({ expense, selectExpense, deleteSelectedExpense }) => {
     return ( 
     <>
         <td>{expense.description}</td>
+        <td>{moment(expense.createdDate).format('HH.MM A, DD/MM/YYYY')}</td>
         <td>{expense.comment}</td>
-        <td>{expense.date}</td>
         <td>$ {expense.amount}</td>
         <td>
             <div className='settings'>

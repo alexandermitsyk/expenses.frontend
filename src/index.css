@@ -173,11 +173,11 @@ ion-icon {
 }
 
 .modal-footer {
-    margin-top: 10px;
+    margin-top:20px;
 }
 
-.modal-body form div {
-    padding: 1rem;
+.modal-body .expenses-form-container {
+    padding: 0.5rem 1rem;
 }
 
 .settings {
@@ -203,4 +203,62 @@ button.add-button {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.sign-screen {
+    display: grid;
+    grid-template-columns: 60% 20%;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 64px);
+    grid-gap: 20px;
+}
+
+.sign-screen.inverse {
+    grid-template-columns: 20% 60%;
+}
+
+.left-sign img {
+    max-width: 1000px;
+}
+
+.left-sign {
+    border-right: 1px solid #f7f7f7;
+}
+
+.left-sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign-link {
+    margin-left: 10px;
+}
+
+.react-datepicker {
+    border: 1px solid #f7f7f7;
+}
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+    border-top: none;
+    border-bottom-color: #f7f7f7;
+}
+
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before {
+    top: -1px;
+    border-bottom-color: #f7f7f7;
+}
+
+.react-datepicker__header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ffffff;
+}
+
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+    border-radius: 0rem;
+    background-color: #1976d2;
+    color: #fff;
 }

@@ -11,6 +11,8 @@ import {
 
 import axios from "axios";
 
+import moment from 'moment';
+
 const axiosInstance = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
 });
@@ -42,9 +44,14 @@ export const NewExpense = async (dispatch, expense) => {
 
 export const EditExpense = async (dispatch, expense) => {
     try {
-        await axiosInstance.put('/Expanses', expense);
+        const newExpense = {
+            ...expense,
+            createdDate: moment(expense.createdDate).format(),
+        }
+
+        await axiosInstance.put('/Expanses', newExpense);
     
-        dispatch(editExpense(expense))
+        dispatch(editExpense(newExpense))
     } catch (error) {
         dispatch(editExpenseError())
     }
