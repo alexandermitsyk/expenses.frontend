@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Nav, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../app/authenticationSlice';
+import { Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Squash as Hamburger } from 'hamburger-react';
 import Dropdown from './Dropdown';
 

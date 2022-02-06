@@ -14,7 +14,7 @@ const StaticticsPreview = () => {
                     <p>$ {total.toFixed(2)}</p>
                 </div>
                 <div className='right-col'>
-                    <img src='../stats.png' />
+                    <img src='../stats.png' alt='' />
                 </div>
             </div>
         </div>

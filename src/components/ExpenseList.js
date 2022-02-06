@@ -6,6 +6,7 @@ import ExpenseModal from './ExpenseModal';
 import ExpenseFilter from './ExpenseFilter';
 import { DeleteExpense } from '../services/expenses';
 import moment from 'moment';
+import { Helmet } from "react-helmet";
 
 const ExpenseList = ({ show, setShow }) => {
     const dispatch = useDispatch();
@@ -27,9 +28,15 @@ const ExpenseList = ({ show, setShow }) => {
 
     useEffect(()  => {
         GetExpenses(dispatch);
-    }, []);
+    }, [dispatch]);
 
     return (
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Your expenses</title>
+                <link rel="canonical" href="/" />
+            </Helmet>
             <Container>
                 <ExpenseModal show={show} selectExpense={selectExpense} setShow={setShow} setIsEditing={setIsEditing} expense={selected} setSelected={setSelected} />
                 <ExpenseFilter />
@@ -54,6 +61,7 @@ const ExpenseList = ({ show, setShow }) => {
                         </tbody>
                 </Table>
             </Container>
+        </>
     )
 };
 

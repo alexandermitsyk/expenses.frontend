@@ -229,6 +229,11 @@ button.add-button {
     border-right: 1px solid #f7f7f7;
 }
 
+.sign-screen.inverse .left-sign {
+    border-left: 1px solid #f7f7f7;
+    border-right: 0;
+}
+
 .left-sign {
     display: flex;
     align-items: center;
@@ -261,4 +266,43 @@ button.add-button {
     border-radius: 0rem;
     background-color: #1976d2;
     color: #fff;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+.divider::before {
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 100%;
+    background-color: #efefef;
+    z-index: -1;
+}
+
+.divider::after {
+    content: "or";
+    position: relative;
+    width: 20px;
+    height: 28px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    color: #cdcdcd;
+}
+
+.google-button-container {
+    margin-top: 10px;
+}
+
+.google-button {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0/0.1),0 2px 4px -2px rgb(0 0 0/0.1) !important;
+    border: 1px solid #ededed !important;
+    margin: 0 auto;
+    width: 100%;
 }

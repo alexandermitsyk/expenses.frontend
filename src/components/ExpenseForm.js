@@ -3,7 +3,6 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { EditExpense, NewExpense } from '../services/expenses';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
 
 const ExpenseForm = ({ expense, handleClose }) => {
     const descriptions = ['Groceries', 'Credit card', 'Eating out', 'Gas']
