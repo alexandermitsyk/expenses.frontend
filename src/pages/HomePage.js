@@ -1,5 +1,5 @@
-import ExpenseList from './ExpenseList';
-import StaticticsPreview from './StaticticsPreview';
+import ExpenseList from '../components/ExpenseList';
+import StaticticsPreview from '../components/StaticticsPreview';
 
 const HomePage = ({ show, setShow }) => (
     <div>

@@ -1,13 +1,15 @@
 import { React, useEffect, useState } from 'react';
-import HomePage from './components/HomePage';
+import HomePage from './pages/HomePage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+import StatisticsPage from './pages/StatisticsPage';
+
+import Loading from './components/Loading';
 import Navbar from './components/Navbar';
-import SignInPage from './components/SignInPage';
-import SignUpPage from './components/SignUpPage';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userAuthenticated } from './app/authenticationSlice';
-import { ToastContainer } from 'react-toastify';
-import StatisticsPage from './components/StatisticsPage';
 
 const App = () => {
     const [show, setShow] = useState(false);
@@ -23,19 +25,22 @@ const App = () => {
         if (token !== undefined && token !== null) {
             dispatch(userAuthenticated({ token: token }))
         }
-    }, []);
+    }, [dispatch]);
 
-  return <BrowserRouter>
-    <Navbar show={show} setShow={setShow} handleShow={handleShow} />
-    <ToastContainer />
-    <Switch>
-      <Route exact path="/" render={() => (isLoggedIn ? <HomePage show={show} setShow={setShow} /> : <SignInPage />)} />
-      <Route path="/signup" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignUpPage />)} />
-      <Route path="/signin" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignInPage />)} />
-      <Route path="/statistics" render={() => (isLoggedIn ? <StatisticsPage /> : <SignInPage />)} />
-      <Route component={() => <h2>Page not found!</h2>} />
-    </Switch>
-  </BrowserRouter>
+    return (
+        <BrowserRouter>
+            <Loading />
+            <Navbar show={show} setShow={setShow} handleShow={handleShow} />
+            <ToastContainer />
+            <Switch>
+                <Route exact path="/" render={() => (isLoggedIn ? <HomePage show={show} setShow={setShow} /> : <SignInPage />)} />
+                <Route path="/signup" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignUpPage />)} />
+                <Route path="/signin" render={() => (isLoggedIn ? <Redirect to='/' /> : <SignInPage />)} />
+                <Route path="/statistics" render={() => (isLoggedIn ? <StatisticsPage /> : <SignInPage />)} />
+                <Route component={() => <h2>Page not found!</h2>} />
+            </Switch>
+        </BrowserRouter>
+    )
 };
 
 export default App;

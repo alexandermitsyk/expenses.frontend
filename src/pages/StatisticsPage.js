@@ -17,8 +17,8 @@ const StatisticsPage = () => {
 
     useEffect(() => {
         setDoughnut({
-            labels: expenseAmountPerCategory.map(x => x.Key),
-            data: expenseAmountPerCategory.map(x => x.Value),
+            labels: expenseAmountPerCategory.map(x => x.key),
+            data: expenseAmountPerCategory.map(x => x.value),
         });
     }, [expenseAmountPerCategory]);
 
@@ -41,11 +41,15 @@ const StatisticsPage = () => {
         }],
     };
 
-    return <div hidden={!expenseAmountPerCategory || !expenseAmountPerCategory.length}
-        style={{ maxWidth: '35rem', maxHeight: '35rem', margin: 'auto', textAlign: 'center' }}>
-        <h4 style={{ marginTop: '10px' }}>Expenses per Category</h4>
-        <Doughnut data={data} />
-    </div>
+    return (
+        <div 
+            hidden={!expenseAmountPerCategory || !expenseAmountPerCategory.length} 
+            style={{ maxWidth: '35rem', maxHeight: '35rem', margin: 'auto', textAlign: 'center' }}
+        >
+            <h4 style={{ marginTop: '10px' }}>Expenses per Category</h4>
+            <Doughnut data={data} />
+        </div>
+    )
 }
 
 export default StatisticsPage;

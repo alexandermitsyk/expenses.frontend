@@ -3,11 +3,11 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { EditExpense, NewExpense } from '../services/expenses';
 import DatePicker from 'react-datepicker';
+import Categories from '../constants/Categories';
 
 const ExpenseForm = ({ expense, handleClose }) => {
-    const descriptions = ['Groceries', 'Credit card', 'Eating out', 'Gas']
     const [amount, setAmount] = useState(0);
-    const [description, setDescription] = useState(descriptions[0]);
+    const [description, setDescription] = useState(Categories.Salary);
     const [comment, setComment] = useState('');
     const [isNewExpense, setIsNewExpense] = useState(true);
     const dispatch = useDispatch();
@@ -54,9 +54,17 @@ const ExpenseForm = ({ expense, handleClose }) => {
                     <Form.Label>Description</Form.Label>
                     <Form.Control as='select' onChange={event => setDescription(event.target.value)}>
                         {
-                            descriptions.map((d, index) => (
-                                <option key={`option-${index}`}>{d}</option>
-                            ))
+                            Object.keys(Categories).map((key) => {
+                                const value = Categories[key];
+
+                                if (typeof value === 'function') return null;
+
+                                return (
+                                    <option key={`option-${value}`} value={value}>
+                                        { Categories.getName(value) }
+                                    </option>
+                                )
+                            })
                         }
                     </Form.Control>
                 </Col>

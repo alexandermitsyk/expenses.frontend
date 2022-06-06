@@ -2,10 +2,10 @@ import { React, useState } from 'react';
 import { Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { SignIn } from '../services/authentication';
 import { useDispatch } from 'react-redux';
-import ThirdPartySignIns from './ThirdPartySignIns';
+import ThirdPartySignIns from '../components/ThirdPartySignIns';
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
-import Divider from './Divider';
+import Divider from '../components/Divider';
 
 const SignInPage = () => {
     const [userName, setUserName] = useState('');

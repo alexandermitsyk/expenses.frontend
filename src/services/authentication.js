@@ -1,15 +1,11 @@
 import { userAuthenticated } from '../app/authenticationSlice';
-import * as axios from 'axios';
 import { toast } from "react-toastify";
-
-const axiosInstance = axios.create({
-    baseURL: `${process.env.REACT_APP_BASE_URL}/Authentication`,
-});
+import axiosInstance from './axiosInstance';
 
 export const SignUp = async (dispatch, credentials) => {
     try {
         // api call
-        const { data } = await axiosInstance.post('/signup', credentials);
+        const { data } = await axiosInstance.post('/Authentication/signup', credentials);
         dispatch(userAuthenticated(data));
     } catch(e) {
         toast.error(e.response.data);
@@ -23,7 +19,7 @@ export const SignIn = async (dispatch, credentials) => {
     };
     try {
         // api call
-        const { data } = await axiosInstance.post('/signin', newCredits);
+        const { data } = await axiosInstance.post('/Authentication/signin', newCredits);
         dispatch(userAuthenticated(data));
     } catch(e) {
         toast.error(e.response.data);
@@ -33,7 +29,7 @@ export const SignIn = async (dispatch, credentials) => {
 export const ThirdPartySignIn = async (dispatch, token) => {
     try {
         // api call        
-        const { data } = await axiosInstance.post(`/google?token=${token}`);
+        const { data } = await axiosInstance.post(`/Authentication/google?token=${token}`);
         dispatch(userAuthenticated(data));
     } catch(e) {
         toast.error(e.response.data);

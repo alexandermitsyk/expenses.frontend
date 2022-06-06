@@ -9,13 +9,8 @@ import {
     deleteExpenseError,
 } from "../app/expensesSlice";
 
-import axios from "axios";
-
 import moment from 'moment';
-
-const axiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
-});
+import axiosInstance from './axiosInstance';
 
 axiosInstance.interceptors.request.use((config) => {
     config.headers = { authorization: 'Bearer ' + sessionStorage.getItem('token') };

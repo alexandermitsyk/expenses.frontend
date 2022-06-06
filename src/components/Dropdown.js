@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../app/authenticationSlice';
 
-const Dropdown = () => {
+const Dropdown = (props) => {
     const dispatch = useDispatch();
     const { isLoggedIn } = useSelector(state => state.authenticationSlice);
 
@@ -13,8 +13,8 @@ const Dropdown = () => {
                 {
                     isLoggedIn && (
                         <>
-                            <NavLink variant='link' to='/'><ion-icon name="home-outline"></ion-icon> Home</NavLink>
-                            <NavLink variant='link' to='/statistics'><ion-icon name="bar-chart-outline"></ion-icon> Statistics</NavLink>
+                            <NavLink onClick={() => props.toggle(false)} variant='link' to='/'><ion-icon name="home-outline"></ion-icon> Home</NavLink>
+                            <NavLink onClick={() => props.toggle(false)} variant='link' to='/statistics'><ion-icon name="bar-chart-outline"></ion-icon> Statistics</NavLink>
                         </>
                     )
                 }
@@ -23,8 +23,8 @@ const Dropdown = () => {
                     ? <Button variant='link' href='/signin' onClick={() => { dispatch(logout()) }}><ion-icon name="log-out-outline"></ion-icon> Sign Out</Button>
                     : (
                         <>
-                            <NavLink variant='link' to='/signin'><ion-icon name="log-in-outline"></ion-icon> Sign In</NavLink>
-                            <NavLink variant='link' to='/signup'><ion-icon name="add-outline"></ion-icon> Sign Up</NavLink>
+                            <NavLink onClick={() => props.toggle(false)} variant='link' to='/signin'><ion-icon name="log-in-outline"></ion-icon> Sign In</NavLink>
+                            <NavLink onClick={() => props.toggle(false)} variant='link' to='/signup'><ion-icon name="add-outline"></ion-icon> Sign Up</NavLink>
                         </>
                     )
                 }

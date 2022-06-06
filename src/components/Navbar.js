@@ -13,7 +13,7 @@ const Navbar = ({ show, handleShow }) => {
             <Nav className='navbar'>
                 <div className='container header-grid-container'>
                     <Hamburger color="#fff" size={24} toggled={isOpen} toggle={setOpen} />
-                    { isOpen ? <Dropdown /> : null}
+                    { isOpen ? <Dropdown toggle={setOpen} /> : null}
                     <h1 className='brand'>Expenses Manager</h1>
                     { isLoggedIn && <button className='add-button' onClick={handleShow}><ion-icon name="add-circle-outline"></ion-icon> ADD</button> } 
                 </div>
